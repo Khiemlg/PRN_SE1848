@@ -155,3 +155,4 @@ BloodDonation_System/bin/Debug/net9.0/BloodDonation_System.pdb
 *.dll
 BloodDonation_System/obj/Debug/net9.0/ref/BloodDonation_System.dll
 BloodDonation_System/obj/Debug/net9.0/refint/BloodDonation_System.dll
+.vs/
