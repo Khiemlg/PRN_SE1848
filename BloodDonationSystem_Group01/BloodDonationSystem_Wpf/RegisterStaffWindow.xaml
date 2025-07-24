@@ -1,0 +1,54 @@
+<Window x:Class="BloodDonationSystem_Wpf.RegisterStaffWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BloodDonationSystem_Wpf"
+        mc:Ignorable="d"
+        Title="Register Staff Account" Height="450" Width="600" WindowStartupLocation="CenterScreen">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <Label Grid.Row="0" Content="Register Staff Account" 
+               FontFamily="Tahoma" Foreground="#FF2E7D32" FontSize="18" FontWeight="Bold" 
+               HorizontalAlignment="Center" Margin="0,0,0,20"/>
+
+        <!-- Form Content -->
+        <StackPanel Grid.Row="1">
+            
+            <Label Content="Username:" FontFamily="Tahoma" Foreground="#FF2E7D32" FontWeight="Bold"/>
+            <TextBox x:Name="txtUsername" Height="30" Background="#FFECF9EC" Margin="0,0,0,15"/>
+            
+            <Label Content="Email:" FontFamily="Tahoma" Foreground="#FF2E7D32" FontWeight="Bold"/>
+            <TextBox x:Name="txtEmail" Height="30" Background="#FFECF9EC" Margin="0,0,0,15"/>
+            
+            <Label Content="Password:" FontFamily="Tahoma" Foreground="#FF2E7D32" FontWeight="Bold"/>
+            <PasswordBox x:Name="txtPassword" Height="30" Background="#FFECF9EC" Margin="0,0,0,15"/>
+            
+            <Label Content="Confirm Password:" FontFamily="Tahoma" Foreground="#FF2E7D32" FontWeight="Bold"/>
+            <PasswordBox x:Name="txtConfirmPassword" Height="30" Background="#FFECF9EC" Margin="0,0,0,15"/>
+
+            <TextBlock Text="Note: This will create a Staff account with administrative privileges for blood donation management." 
+                       FontStyle="Italic" Foreground="#FF757575" TextWrapping="Wrap" Margin="0,10,0,0"/>
+
+        </StackPanel>
+
+        <!-- Buttons -->
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button x:Name="btnRegisterStaff" Content="Register Staff" 
+                    Width="150" Height="40" Padding="15,8" Margin="10"
+                    Background="#FF388E3C" Foreground="White" FontWeight="Bold"
+                    Click="btnRegisterStaff_Click"/>
+            <Button x:Name="btnCancel" Content="Cancel" 
+                    Width="120" Height="40" Padding="15,8" Margin="10"
+                    Background="#FF757575" Foreground="White" FontWeight="Bold"
+                    Click="btnCancel_Click"/>
+        </StackPanel>
+
+    </Grid>
+</Window>

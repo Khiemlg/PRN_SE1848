@@ -58,14 +58,38 @@ namespace BloodDonationSystem_Wpf
         #region Member Functions
         private void btnEditProfile_Click(object sender, RoutedEventArgs e)
         {
+<<<<<<< HEAD
             MessageBox.Show("Edit Profile functionality will be implemented soon.", "Coming Soon", MessageBoxButton.OK, MessageBoxImage.Information);
             // TODO: Open EditProfileWindow
+=======
+            try
+            {
+                EditProfileWindow editProfileWindow = new EditProfileWindow(_currentUser);
+                editProfileWindow.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error opening Edit Profile: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+>>>>>>> 2320e1b (ĐK hiến máu, ĐK tài khoản Staff)
         }
 
         private void btnRegisterDonation_Click(object sender, RoutedEventArgs e)
         {
+<<<<<<< HEAD
             MessageBox.Show("Register Blood Donation functionality will be implemented soon.", "Coming Soon", MessageBoxButton.OK, MessageBoxImage.Information);
             // TODO: Open RegisterDonationWindow
+=======
+            try
+            {
+                RegisterDonationWindow registerDonationWindow = new RegisterDonationWindow(_currentUser);
+                registerDonationWindow.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error opening Register Donation: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+>>>>>>> 2320e1b (ĐK hiến máu, ĐK tài khoản Staff)
         }
 
         private void btnViewHistory_Click(object sender, RoutedEventArgs e)
@@ -102,6 +126,22 @@ namespace BloodDonationSystem_Wpf
             // TODO: Open ManageUsersWindow
         }
 
+<<<<<<< HEAD
+=======
+        private void btnRegisterStaff_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                RegisterStaffWindow registerStaffWindow = new RegisterStaffWindow(_currentUser);
+                registerStaffWindow.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error opening Register Staff: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+>>>>>>> 2320e1b (ĐK hiến máu, ĐK tài khoản Staff)
         private void btnManageRoles_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Manage User Roles functionality will be implemented soon.", "Coming Soon", MessageBoxButton.OK, MessageBoxImage.Information);

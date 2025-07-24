@@ -88,7 +88,11 @@ namespace Service.Implement
                 Username = username.Trim(),
                 Email = email.Trim(),
                 PasswordHash = password, // In production, this should be hashed
+<<<<<<< HEAD
                 RoleId = 2, // Assuming 2 is regular user role
+=======
+                RoleId = 3, // Default role: Member
+>>>>>>> 2320e1b (ĐK hiến máu, ĐK tài khoản Staff)
                 RegistrationDate = DateTime.Now,
                 IsActive = true
             };
@@ -96,6 +100,47 @@ namespace Service.Implement
             userRepository.AddUser(newUser);
         }
 
+<<<<<<< HEAD
+=======
+        public void RegisterStaff(string username, string email, string password, User adminUser)
+        {
+            // Check if the current user is Admin
+            if (adminUser.RoleId != 1)
+            {
+                throw new Exception("Only administrators can create staff accounts");
+            }
+
+            // Check if username already exists
+            var existingUserByUsername = userRepository.GetUserByUsername(username);
+            if (existingUserByUsername != null)
+            {
+                throw new Exception("Username already exists");
+            }
+
+            // Check if email already exists
+            var allUsers = userRepository.GetAllUsers();
+            var existingUserByEmail = allUsers.FirstOrDefault(u => u.Email?.ToLower() == email.ToLower());
+            if (existingUserByEmail != null)
+            {
+                throw new Exception("Email already exists");
+            }
+
+            // Create new staff user
+            User newStaffUser = new User
+            {
+                UserId = Guid.NewGuid().ToString(),
+                Username = username.Trim(),
+                Email = email.Trim(),
+                PasswordHash = password, // In production, this should be hashed
+                RoleId = 2, // Staff role
+                RegistrationDate = DateTime.Now,
+                IsActive = true
+            };
+
+            userRepository.AddUser(newStaffUser);
+        }
+
+>>>>>>> 2320e1b (ĐK hiến máu, ĐK tài khoản Staff)
         public void UpdateUser(User user)
         {
             var existingUser = userRepository.GetUserById(user.UserId);
