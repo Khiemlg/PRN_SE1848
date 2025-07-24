@@ -1,0 +1,29 @@
+<Window x:Class="BloodDonationSystem_Wpf.RegisterWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BloodDonationSystem_Wpf"
+        mc:Ignorable="d"
+        Title="Register Window" Height="500" Width="600" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Label Content="Register" HorizontalAlignment="Left" Margin="38,28,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Foreground="#FF2E7D32" FontSize="16" FontWeight="Bold"/>
+        
+        <Label Content="Username:" HorizontalAlignment="Left" Margin="38,73,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Foreground="#FF2E7D32"/>
+        <TextBox x:Name="txtUsername" HorizontalAlignment="Left" Margin="173,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="341" Height="30" Background="#FFECF9EC"/>
+        
+        <Label Content="Email:" HorizontalAlignment="Left" Margin="38,118,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Foreground="#FF2E7D32"/>
+        <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Margin="173,123,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="341" Height="30" Background="#FFECF9EC"/>
+        
+        <Label Content="Password:" HorizontalAlignment="Left" Margin="38,163,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Foreground="#FF2E7D32"/>
+        <PasswordBox x:Name="txtPassword" HorizontalAlignment="Left" Margin="173,168,0,0" VerticalAlignment="Top" Width="341" Height="30" Background="#FFECF9EC"/>
+        
+        <Label Content="Confirm Password:" HorizontalAlignment="Left" Margin="38,208,0,0" VerticalAlignment="Top" FontFamily="Tahoma" Foreground="#FF2E7D32"/>
+        <PasswordBox x:Name="txtConfirmPassword" HorizontalAlignment="Left" Margin="173,213,0,0" VerticalAlignment="Top" Width="341" Height="30" Background="#FFECF9EC"/>
+        
+        <Button x:Name="btnRegister" Content="Register" HorizontalAlignment="Left" Margin="278,270,0,0" VerticalAlignment="Top" Padding="15,8" Background="#FF388E3C" Foreground="White" Click="btnRegister_Click" FontWeight="Bold"/>
+        
+        <Button x:Name="btnBackToLogin" Content="Back to Login" HorizontalAlignment="Left" Margin="400,270,0,0" VerticalAlignment="Top" Padding="15,8" Background="#FF757575" Foreground="White" Click="btnBackToLogin_Click"/>
+
+    </Grid>
+</Window>
