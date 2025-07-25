@@ -58,10 +58,6 @@ namespace BloodDonationSystem_Wpf
         #region Member Functions
         private void btnEditProfile_Click(object sender, RoutedEventArgs e)
         {
-<<<<<<< HEAD
-            MessageBox.Show("Edit Profile functionality will be implemented soon.", "Coming Soon", MessageBoxButton.OK, MessageBoxImage.Information);
-            // TODO: Open EditProfileWindow
-=======
             try
             {
                 EditProfileWindow editProfileWindow = new EditProfileWindow(_currentUser);
@@ -71,15 +67,10 @@ namespace BloodDonationSystem_Wpf
             {
                 MessageBox.Show($"Error opening Edit Profile: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
->>>>>>> 2320e1b (ĐK hiến máu, ĐK tài khoản Staff)
         }
 
         private void btnRegisterDonation_Click(object sender, RoutedEventArgs e)
         {
-<<<<<<< HEAD
-            MessageBox.Show("Register Blood Donation functionality will be implemented soon.", "Coming Soon", MessageBoxButton.OK, MessageBoxImage.Information);
-            // TODO: Open RegisterDonationWindow
-=======
             try
             {
                 RegisterDonationWindow registerDonationWindow = new RegisterDonationWindow(_currentUser);
@@ -89,7 +80,6 @@ namespace BloodDonationSystem_Wpf
             {
                 MessageBox.Show($"Error opening Register Donation: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
->>>>>>> 2320e1b (ĐK hiến máu, ĐK tài khoản Staff)
         }
 
         private void btnViewHistory_Click(object sender, RoutedEventArgs e)
@@ -102,8 +92,15 @@ namespace BloodDonationSystem_Wpf
         #region Staff Functions
         private void btnManageDonations_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Manage Blood Donations functionality will be implemented soon.", "Coming Soon", MessageBoxButton.OK, MessageBoxImage.Information);
-            // TODO: Open ManageDonationsWindow
+            try
+            {
+                ManageDonationsWindow manageDonationsWindow = new ManageDonationsWindow(_currentUser);
+                manageDonationsWindow.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error opening Manage Donations: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void btnViewAllDonations_Click(object sender, RoutedEventArgs e)
@@ -126,8 +123,6 @@ namespace BloodDonationSystem_Wpf
             // TODO: Open ManageUsersWindow
         }
 
-<<<<<<< HEAD
-=======
         private void btnRegisterStaff_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -141,7 +136,6 @@ namespace BloodDonationSystem_Wpf
             }
         }
 
->>>>>>> 2320e1b (ĐK hiến máu, ĐK tài khoản Staff)
         private void btnManageRoles_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Manage User Roles functionality will be implemented soon.", "Coming Soon", MessageBoxButton.OK, MessageBoxImage.Information);

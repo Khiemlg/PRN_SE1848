@@ -29,6 +29,11 @@ namespace Service.Implement
             return donationRequestRepository.GetDonationRequestsByUserId(userId);
         }
 
+        public List<DonationRequest> GetAllDonationRequests()
+        {
+            return donationRequestRepository.GetAllDonationRequests();
+        }
+
         public List<BloodComponent> GetAllBloodComponents()
         {
             return donationRequestRepository.GetAllBloodComponents();

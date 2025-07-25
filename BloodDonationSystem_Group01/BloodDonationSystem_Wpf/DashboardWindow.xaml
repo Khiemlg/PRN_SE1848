@@ -81,24 +81,17 @@
                                 Width="200" Height="40" Margin="5"
                                 Background="#FF388E3C" Foreground="White" FontWeight="Bold"
                                 Click="btnManageUsers_Click"/>
-<<<<<<< HEAD
-=======
                         <Button x:Name="btnRegisterStaff" Content="Register Staff Account" 
                                 Width="200" Height="40" Margin="5"
                                 Background="#FF7B1FA2" Foreground="White" FontWeight="Bold"
                                 Click="btnRegisterStaff_Click"/>
->>>>>>> 2320e1b (ĐK hiến máu, ĐK tài khoản Staff)
                         <Button x:Name="btnManageRoles" Content="Manage User Roles" 
                                 Width="200" Height="40" Margin="5"
                                 Background="#FF1976D2" Foreground="White" FontWeight="Bold"
                                 Click="btnManageRoles_Click"/>
                         <Button x:Name="btnSystemReports" Content="System Reports" 
                                 Width="200" Height="40" Margin="5"
-<<<<<<< HEAD
-                                Background="#FF7B1FA2" Foreground="White" FontWeight="Bold"
-=======
                                 Background="#FFFF9800" Foreground="White" FontWeight="Bold"
->>>>>>> 2320e1b (ĐK hiến máu, ĐK tài khoản Staff)
                                 Click="btnSystemReports_Click"/>
                     </StackPanel>
                 </GroupBox>

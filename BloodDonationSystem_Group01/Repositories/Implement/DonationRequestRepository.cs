@@ -41,6 +41,21 @@ namespace Repositories.Implement
             }
         }
 
+        public List<DonationRequest> GetAllDonationRequests()
+        {
+            try
+            {
+                using var context = new BloodDsystemContext();
+                return context.DonationRequests
+                    .OrderByDescending(dr => dr.RequestDate)
+                    .ToList();
+            }
+            catch (Exception)
+            {
+                return new List<DonationRequest>();
+            }
+        }
+
         public List<BloodComponent> GetAllBloodComponents()
         {
             try

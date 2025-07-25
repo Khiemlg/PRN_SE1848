@@ -11,6 +11,7 @@ namespace Repositories.Interface
     {
         public void CreateDonationRequest(DonationRequest donationRequest);
         public List<DonationRequest> GetDonationRequestsByUserId(string userId);
+        public List<DonationRequest> GetAllDonationRequests();
         public List<BloodComponent> GetAllBloodComponents();
         public DonationRequest? GetDonationRequestById(string requestId);
         public void UpdateDonationRequest(DonationRequest donationRequest);

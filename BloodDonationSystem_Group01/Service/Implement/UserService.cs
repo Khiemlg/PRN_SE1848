@@ -88,11 +88,7 @@ namespace Service.Implement
                 Username = username.Trim(),
                 Email = email.Trim(),
                 PasswordHash = password, // In production, this should be hashed
-<<<<<<< HEAD
-                RoleId = 2, // Assuming 2 is regular user role
-=======
                 RoleId = 3, // Default role: Member
->>>>>>> 2320e1b (ĐK hiến máu, ĐK tài khoản Staff)
                 RegistrationDate = DateTime.Now,
                 IsActive = true
             };
@@ -100,8 +96,6 @@ namespace Service.Implement
             userRepository.AddUser(newUser);
         }
 
-<<<<<<< HEAD
-=======
         public void RegisterStaff(string username, string email, string password, User adminUser)
         {
             // Check if the current user is Admin
@@ -140,7 +134,6 @@ namespace Service.Implement
             userRepository.AddUser(newStaffUser);
         }
 
->>>>>>> 2320e1b (ĐK hiến máu, ĐK tài khoản Staff)
         public void UpdateUser(User user)
         {
             var existingUser = userRepository.GetUserById(user.UserId);
