@@ -10,6 +10,8 @@ namespace Service.Interface
     public interface IUserService
     {
         public User Login(string email, string password);
+        public void Register(string username, string email, string password);
+        public void RegisterStaff(string username, string email, string password, User adminUser);
         public List<User> GetAllUsers();
         public User? GetUserById(string userId);
         public User? GetUserByUsername(string username);

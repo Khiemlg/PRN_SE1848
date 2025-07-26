@@ -37,12 +37,12 @@ namespace Service.Implement
 
         public List<BloodUnit> GetAllBloodUnits()
         {
-            var units = _bloodUnitRepository.GetAllBloodUnits();
-            if (units == null || !units.Any())
-            {
-                throw new InvalidOperationException("No blood units found");
-            }
-            return units;
+            return _bloodUnitRepository.GetAllBloodUnits();
+        }
+
+        public async Task<List<BloodUnit>> GetAllBloodUnitsAsync()
+        {
+            return await Task.FromResult(_bloodUnitRepository.GetAllBloodUnits());
         }
 
         public BloodUnit? GetBloodUnitById(string unitId)
@@ -69,6 +69,41 @@ namespace Service.Implement
             {
                 throw new ArgumentException("Unit ID cannot be null or empty", nameof(unit.UnitId));
             }
+            _bloodUnitRepository.UpdateBloodUnit(unit);
+        }
+
+        public void MarkUnitAsUsed(string unitId)
+        {
+            if (string.IsNullOrEmpty(unitId))
+            {
+                throw new ArgumentException("Unit ID cannot be null or empty", nameof(unitId));
+            }
+            
+            var unit = _bloodUnitRepository.GetBloodUnitById(unitId);
+            if (unit == null)
+            {
+                throw new KeyNotFoundException($"Blood unit with ID {unitId} not found");
+            }
+            
+            unit.Status = "Used";
+            _bloodUnitRepository.UpdateBloodUnit(unit);
+        }
+
+        public void DiscardUnit(string unitId, string reason)
+        {
+            if (string.IsNullOrEmpty(unitId))
+            {
+                throw new ArgumentException("Unit ID cannot be null or empty", nameof(unitId));
+            }
+            
+            var unit = _bloodUnitRepository.GetBloodUnitById(unitId);
+            if (unit == null)
+            {
+                throw new KeyNotFoundException($"Blood unit with ID {unitId} not found");
+            }
+            
+            unit.Status = "Discarded";
+            unit.DiscardReason = reason;
             _bloodUnitRepository.UpdateBloodUnit(unit);
         }
     }

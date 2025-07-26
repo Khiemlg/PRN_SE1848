@@ -1,0 +1,73 @@
+<Window x:Class="BloodDonationSystem_Wpf.AddEditBloodUnitWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BloodDonationSystem_Wpf"
+        mc:Ignorable="d"
+        Title="Add Blood Unit" Height="500" Width="600" WindowStartupLocation="CenterScreen">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <Label x:Name="lblTitle" Grid.Row="0" Content="Add Blood Unit" 
+               FontFamily="Tahoma" Foreground="#FF2E7D32" FontSize="18" FontWeight="Bold" Margin="0,0,0,20"/>
+
+        <!-- Form Fields -->
+        <StackPanel Grid.Row="1" Margin="0,0,0,20">
+            <Label Content="Unit ID (Auto-generated):" FontFamily="Tahoma" Foreground="#FF2E7D32"/>
+            <TextBox x:Name="txtUnitId" Height="30" Background="#FFF0F0F0" Margin="0,5,0,15" IsReadOnly="True"/>
+
+            <Label Content="Blood Type:" FontFamily="Tahoma" Foreground="#FF2E7D32"/>
+            <ComboBox x:Name="cmbBloodType" Height="30" Margin="0,5,0,15">
+                <ComboBoxItem Content="A+" Tag="1"/>
+                <ComboBoxItem Content="A-" Tag="2"/>
+                <ComboBoxItem Content="B+" Tag="3"/>
+                <ComboBoxItem Content="B-" Tag="4"/>
+                <ComboBoxItem Content="AB+" Tag="5"/>
+                <ComboBoxItem Content="AB-" Tag="6"/>
+                <ComboBoxItem Content="O+" Tag="7"/>
+                <ComboBoxItem Content="O-" Tag="8"/>
+            </ComboBox>
+
+            <Label Content="Component:" FontFamily="Tahoma" Foreground="#FF2E7D32"/>
+            <ComboBox x:Name="cmbComponent" Height="30" Margin="0,5,0,15">
+                <ComboBoxItem Content="Whole Blood" Tag="1"/>
+                <ComboBoxItem Content="Red Blood Cells" Tag="2"/>
+                <ComboBoxItem Content="Plasma" Tag="3"/>
+                <ComboBoxItem Content="Platelets" Tag="4"/>
+            </ComboBox>
+
+            <Label Content="Volume (ml):" FontFamily="Tahoma" Foreground="#FF2E7D32"/>
+            <TextBox x:Name="txtVolume" Height="30" Background="#FFECF9EC" Margin="0,5,0,15"/>
+
+            <Label Content="Collection Date:" FontFamily="Tahoma" Foreground="#FF2E7D32"/>
+            <DatePicker x:Name="dpCollectionDate" Height="30" Margin="0,5,0,15"/>
+
+            <Label Content="Expiration Date:" FontFamily="Tahoma" Foreground="#FF2E7D32"/>
+            <DatePicker x:Name="dpExpirationDate" Height="30" Margin="0,5,0,15"/>
+
+            <Label Content="Storage Location:" FontFamily="Tahoma" Foreground="#FF2E7D32"/>
+            <TextBox x:Name="txtStorageLocation" Height="30" Background="#FFECF9EC" Margin="0,5,0,15"/>
+
+            <Label Content="Test Results:" FontFamily="Tahoma" Foreground="#FF2E7D32"/>
+            <ComboBox x:Name="cmbTestResults" Height="30" Margin="0,5,0,15">
+                <ComboBoxItem Content="Pending"/>
+                <ComboBoxItem Content="Passed"/>
+                <ComboBoxItem Content="Failed"/>
+            </ComboBox>
+        </StackPanel>
+
+        <!-- Action Buttons -->
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button x:Name="btnSave" Content="Save" Padding="15,8" Margin="0,0,10,0"
+                    Background="#FF388E3C" Foreground="White" FontWeight="Bold" Click="btnSave_Click"/>
+            <Button x:Name="btnCancel" Content="Cancel" Padding="15,8"
+                    Background="#FF757575" Foreground="White" FontWeight="Bold" Click="btnCancel_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

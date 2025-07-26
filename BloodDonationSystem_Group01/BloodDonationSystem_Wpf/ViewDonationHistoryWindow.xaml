@@ -1,0 +1,95 @@
+<Window x:Class="BloodDonationSystem_Wpf.ViewDonationHistoryWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BloodDonationSystem_Wpf"
+        mc:Ignorable="d"
+        Title="Donation History" Height="600" Width="1000" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Label Content="My Donation History" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" 
+               FontFamily="Tahoma" Foreground="#FF2E7D32" FontSize="18" FontWeight="Bold"/>
+        
+        <!-- Filter Controls -->
+        <StackPanel Orientation="Horizontal" Margin="20,60,0,0" VerticalAlignment="Top">
+            <Label Content="Filter by Status:" VerticalAlignment="Center" FontFamily="Tahoma" Foreground="#FF2E7D32"/>
+            <ComboBox x:Name="cmbStatusFilter" Width="150" Margin="10,0,20,0" SelectionChanged="cmbStatusFilter_SelectionChanged">
+                <ComboBoxItem Content="All" IsSelected="True"/>
+                <ComboBoxItem Content="Completed"/>
+                <ComboBoxItem Content="Eligible"/>
+                <ComboBoxItem Content="Not Eligible"/>
+            </ComboBox>
+        </StackPanel>
+        
+        <!-- Statistics Panel -->
+        <Border Background="#FFECF9EC" BorderBrush="#FF2E7D32" BorderThickness="1" 
+                Margin="20,100,20,0" Height="80" VerticalAlignment="Top">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <StackPanel Margin="20,0">
+                    <TextBlock Text="Total Donations" FontWeight="Bold" HorizontalAlignment="Center" Foreground="#FF2E7D32"/>
+                    <TextBlock x:Name="txtTotalDonations" Text="0" FontSize="18" FontWeight="Bold" 
+                               HorizontalAlignment="Center" Foreground="#FF1976D2"/>
+                </StackPanel>
+                <StackPanel Margin="20,0">
+                    <TextBlock Text="Total Volume (ml)" FontWeight="Bold" HorizontalAlignment="Center" Foreground="#FF2E7D32"/>
+                    <TextBlock x:Name="txtTotalVolume" Text="0" FontSize="18" FontWeight="Bold" 
+                               HorizontalAlignment="Center" Foreground="#FF1976D2"/>
+                </StackPanel>
+                <StackPanel Margin="20,0">
+                    <TextBlock Text="Last Donation" FontWeight="Bold" HorizontalAlignment="Center" Foreground="#FF2E7D32"/>
+                    <TextBlock x:Name="txtLastDonation" Text="Never" FontSize="18" FontWeight="Bold" 
+                               HorizontalAlignment="Center" Foreground="#FF1976D2"/>
+                </StackPanel>
+                <StackPanel Margin="20,0">
+                    <TextBlock Text="Eligible for Next" FontWeight="Bold" HorizontalAlignment="Center" Foreground="#FF2E7D32"/>
+                    <TextBlock x:Name="txtNextEligible" Text="Now" FontSize="18" FontWeight="Bold" 
+                               HorizontalAlignment="Center" Foreground="#FF388E3C"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+        
+        <!-- History DataGrid -->
+        <DataGrid x:Name="dgDonationHistory" Margin="20,200,20,60" AutoGenerateColumns="False" 
+                  CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True"
+                  GridLinesVisibility="Horizontal" HeadersVisibility="Column"
+                  Background="White" AlternatingRowBackground="#FFF5F5F5">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Donation ID" Binding="{Binding DonationId}" Width="120"/>
+                <DataGridTextColumn Header="Date" Binding="{Binding DonationDate, StringFormat={}{0:dd/MM/yyyy}}" Width="100"/>
+                <DataGridTextColumn Header="Blood Type" Binding="{Binding BloodTypeName}" Width="100"/>
+                <DataGridTextColumn Header="Component" Binding="{Binding ComponentName}" Width="120"/>
+                <DataGridTextColumn Header="Quantity (ml)" Binding="{Binding QuantityMl}" Width="100"/>
+                <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="100">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Style.Triggers>
+                                <Trigger Property="Text" Value="Completed">
+                                    <Setter Property="Background" Value="#E8F5E8"/>
+                                    <Setter Property="Foreground" Value="#2E7D32"/>
+                                </Trigger>
+                                <Trigger Property="Text" Value="Eligible">
+                                    <Setter Property="Background" Value="#FFF3E0"/>
+                                    <Setter Property="Foreground" Value="#FF8F00"/>
+                                </Trigger>
+                                <Trigger Property="Text" Value="Not Eligible">
+                                    <Setter Property="Background" Value="#FFEBEE"/>
+                                    <Setter Property="Foreground" Value="#D32F2F"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Eligibility" Binding="{Binding EligibilityStatus}" Width="100"/>
+                <DataGridTextColumn Header="Test Results" Binding="{Binding TestingResults}" Width="120"/>
+                <DataGridTextColumn Header="Staff" Binding="{Binding StaffUserName}" Width="100"/>
+                <DataGridTextColumn Header="Notes" Binding="{Binding Descriptions}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        
+        <!-- Action Buttons -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,20,20" VerticalAlignment="Bottom">
+            <Button x:Name="btnClose" Content="Close" Padding="15,8"
+                    Background="#FF757575" Foreground="White" Click="btnClose_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

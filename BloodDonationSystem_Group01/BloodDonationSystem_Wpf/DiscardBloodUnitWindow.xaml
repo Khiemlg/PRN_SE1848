@@ -1,0 +1,51 @@
+<Window x:Class="BloodDonationSystem_Wpf.DiscardBloodUnitWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BloodDonationSystem_Wpf"
+        mc:Ignorable="d"
+        Title="Discard Blood Unit" Height="300" Width="500" WindowStartupLocation="CenterScreen">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <Label Grid.Row="0" Content="Discard Blood Unit" 
+               FontFamily="Tahoma" Foreground="#FF2E7D32" FontSize="18" FontWeight="Bold" Margin="0,0,0,10"/>
+
+        <!-- Unit Info -->
+        <StackPanel Grid.Row="1" Margin="0,0,0,20">
+            <Label x:Name="lblUnitInfo" Content="Unit ID: " FontFamily="Tahoma" Foreground="#FF2E7D32" FontWeight="Bold"/>
+        </StackPanel>
+
+        <!-- Discard Reason -->
+        <StackPanel Grid.Row="2">
+            <Label Content="Reason for Discarding:" FontFamily="Tahoma" Foreground="#FF2E7D32" FontWeight="Bold"/>
+            <ComboBox x:Name="cmbDiscardReason" Height="30" Margin="0,5,0,10">
+                <ComboBoxItem Content="Expired"/>
+                <ComboBoxItem Content="Contaminated"/>
+                <ComboBoxItem Content="Failed Quality Test"/>
+                <ComboBoxItem Content="Storage Temperature Issue"/>
+                <ComboBoxItem Content="Damaged Container"/>
+                <ComboBoxItem Content="Other"/>
+            </ComboBox>
+            
+            <Label Content="Additional Notes:" FontFamily="Tahoma" Foreground="#FF2E7D32" FontWeight="Bold"/>
+            <TextBox x:Name="txtAdditionalNotes" Height="60" TextWrapping="Wrap" 
+                     Background="#FFECF9EC" Margin="0,5,0,0" AcceptsReturn="True"/>
+        </StackPanel>
+
+        <!-- Action Buttons -->
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,20,0,0">
+            <Button x:Name="btnDiscard" Content="Discard Unit" Padding="15,8" Margin="0,0,10,0"
+                    Background="#FFE53935" Foreground="White" FontWeight="Bold" Click="btnDiscard_Click"/>
+            <Button x:Name="btnCancel" Content="Cancel" Padding="15,8"
+                    Background="#FF757575" Foreground="White" FontWeight="Bold" Click="btnCancel_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -30,16 +30,40 @@ namespace BloodDonationSystem_Wpf
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            User user = UserService.Login(txtEmail.Text, txtPassword.Password);
-            if (user != null)
+            try
             {
-                MessageBox.Show("Login successful!");
-                this.Close();
+                if (string.IsNullOrWhiteSpace(txtEmail.Text) || string.IsNullOrWhiteSpace(txtPassword.Password))
+                {
+                    MessageBox.Show("Please enter both email and password.", "Validation Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+
+                User user = UserService.Login(txtEmail.Text, txtPassword.Password);
+                if (user != null)
+                {
+                    MessageBox.Show($"Welcome back, {user.Username}!", "Login Successful", MessageBoxButton.OK, MessageBoxImage.Information);
+                    
+                    // Open Dashboard with user information
+                    DashboardWindow dashboard = new DashboardWindow(user);
+                    dashboard.Show();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Invalid email or password. Please try again.", "Login Failed", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Invalid email or password.");
+                MessageBox.Show($"Login error: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private void btnRegister_Click(object sender, RoutedEventArgs e)
+        {
+            RegisterWindow registerWindow = new RegisterWindow();
+            registerWindow.Show();
+            this.Close();
         }
     }
 }

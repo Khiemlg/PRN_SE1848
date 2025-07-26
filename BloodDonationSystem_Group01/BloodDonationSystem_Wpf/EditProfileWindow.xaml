@@ -1,0 +1,91 @@
+<Window x:Class="BloodDonationSystem_Wpf.EditProfileWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BloodDonationSystem_Wpf"
+        mc:Ignorable="d"
+        Title="Edit Profile" Height="700" Width="600" WindowStartupLocation="CenterScreen">
+    <ScrollViewer>
+        <Grid Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- Header -->
+            <Label Grid.Row="0" Content="Edit Profile" 
+                   FontFamily="Tahoma" Foreground="#FF2E7D32" FontSize="20" FontWeight="Bold" 
+                   HorizontalAlignment="Center" Margin="0,0,0,20"/>
+
+            <!-- Form Content -->
+            <StackPanel Grid.Row="1">
+                
+                <!-- Full Name -->
+                <Label Content="Full Name:" FontFamily="Tahoma" Foreground="#FF2E7D32" FontWeight="Bold"/>
+                <TextBox x:Name="txtFullName" Height="30" Background="#FFECF9EC" Margin="0,0,0,10"/>
+
+                <!-- Date of Birth -->
+                <Label Content="Date of Birth:" FontFamily="Tahoma" Foreground="#FF2E7D32" FontWeight="Bold"/>
+                <DatePicker x:Name="dpDateOfBirth" Height="30" Background="#FFECF9EC" Margin="0,0,0,10"/>
+
+                <!-- Gender -->
+                <Label Content="Gender:" FontFamily="Tahoma" Foreground="#FF2E7D32" FontWeight="Bold"/>
+                <ComboBox x:Name="cmbGender" Height="30" Background="#FFECF9EC" Margin="0,0,0,10">
+                    <ComboBoxItem Content="Male"/>
+                    <ComboBoxItem Content="Female"/>
+                    <ComboBoxItem Content="Other"/>
+                </ComboBox>
+
+                <!-- Phone Number -->
+                <Label Content="Phone Number:" FontFamily="Tahoma" Foreground="#FF2E7D32" FontWeight="Bold"/>
+                <TextBox x:Name="txtPhoneNumber" Height="30" Background="#FFECF9EC" Margin="0,0,0,10"/>
+
+                <!-- CCCD -->
+                <Label Content="Citizen ID (CCCD):" FontFamily="Tahoma" Foreground="#FF2E7D32" FontWeight="Bold"/>
+                <TextBox x:Name="txtCccd" Height="30" Background="#FFECF9EC" Margin="0,0,0,10"/>
+
+                <!-- Address -->
+                <Label Content="Address:" FontFamily="Tahoma" Foreground="#FF2E7D32" FontWeight="Bold"/>
+                <TextBox x:Name="txtAddress" Height="60" Background="#FFECF9EC" TextWrapping="Wrap" 
+                         AcceptsReturn="True" VerticalScrollBarVisibility="Auto" Margin="0,0,0,10"/>
+
+                <!-- Blood Type -->
+                <Label Content="Blood Type:" FontFamily="Tahoma" Foreground="#FF2E7D32" FontWeight="Bold"/>
+                <ComboBox x:Name="cmbBloodType" Height="30" Background="#FFECF9EC" DisplayMemberPath="TypeName" 
+                          SelectedValuePath="BloodTypeId" Margin="0,0,0,10"/>
+
+                <!-- RH Factor -->
+                <Label Content="RH Factor:" FontFamily="Tahoma" Foreground="#FF2E7D32" FontWeight="Bold"/>
+                <ComboBox x:Name="cmbRhFactor" Height="30" Background="#FFECF9EC" Margin="0,0,0,10">
+                    <ComboBoxItem Content="+"/>
+                    <ComboBoxItem Content="-"/>
+                </ComboBox>
+
+                <!-- Medical History -->
+                <Label Content="Medical History:" FontFamily="Tahoma" Foreground="#FF2E7D32" FontWeight="Bold"/>
+                <TextBox x:Name="txtMedicalHistory" Height="80" Background="#FFECF9EC" TextWrapping="Wrap" 
+                         AcceptsReturn="True" VerticalScrollBarVisibility="Auto" Margin="0,0,0,10"/>
+
+                <!-- Last Blood Donation Date -->
+                <Label Content="Last Blood Donation Date:" FontFamily="Tahoma" Foreground="#FF2E7D32" FontWeight="Bold"/>
+                <DatePicker x:Name="dpLastDonationDate" Height="30" Background="#FFECF9EC" Margin="0,0,0,20"/>
+
+            </StackPanel>
+
+            <!-- Buttons -->
+            <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="20,0,20,0">
+                <Button x:Name="btnSave" Content="Save Profile" 
+                        Width="120" Height="40" Padding="10,5" Margin="10"
+                        Background="#FF388E3C" Foreground="White" FontWeight="Bold"
+                        Click="btnSave_Click"/>
+                <Button x:Name="btnCancel" Content="Cancel" 
+                        Width="120" Height="40" Padding="10,5" Margin="10"
+                        Background="#FF757575" Foreground="White" FontWeight="Bold"
+                        Click="btnCancel_Click"/>
+            </StackPanel>
+
+        </Grid>
+    </ScrollViewer>
+</Window>
