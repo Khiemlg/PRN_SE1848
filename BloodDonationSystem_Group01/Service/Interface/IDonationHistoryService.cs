@@ -11,6 +11,7 @@ namespace Service.Interface
     {
         public void CreateDonationHistory(DonationHistory donationHistory);
         public List<DonationHistory> GetDonationHistoryByUserId(string userId);
+        public Task<List<DonationHistory>> GetUserDonationHistoryAsync(string userId);
         public List<DonationHistory> GetAllDonationHistory();
         public DonationHistory? GetDonationHistoryById(string donationId);
         public void UpdateDonationHistory(DonationHistory donationHistory);

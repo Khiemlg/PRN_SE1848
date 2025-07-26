@@ -1,5 +1,6 @@
 using BusinessObject;
 using DataAccessLayer;
+using Microsoft.EntityFrameworkCore;
 using Repositories.Interface;
 using System;
 using System.Collections.Generic;
@@ -32,6 +33,25 @@ namespace Repositories.Implement
                 using var context = new BloodDsystemContext();
                 return context.DonationHistories
                     .Where(dh => dh.DonorUserId == userId)
+                    .OrderByDescending(dh => dh.DonationDate)
+                    .ToList();
+            }
+            catch (Exception)
+            {
+                return new List<DonationHistory>();
+            }
+        }
+
+        public List<DonationHistory> GetDonationHistoryByUserIdWithIncludes(string userId)
+        {
+            try
+            {
+                using var context = new BloodDsystemContext();
+                return context.DonationHistories
+                    .Where(dh => dh.DonorUserId == userId)
+                    .Include(dh => dh.BloodType)
+                    .Include(dh => dh.StaffUser)
+                    .Include(dh => dh.DonationRequest)
                     .OrderByDescending(dh => dh.DonationDate)
                     .ToList();
             }

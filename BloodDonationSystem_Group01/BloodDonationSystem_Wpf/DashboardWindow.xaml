@@ -61,10 +61,6 @@
                                 Width="200" Height="40" Margin="5"
                                 Background="#FFE53935" Foreground="White" FontWeight="Bold"
                                 Click="btnManageDonations_Click"/>
-                        <Button x:Name="btnViewAllDonations" Content="View All Donations" 
-                                Width="200" Height="40" Margin="5"
-                                Background="#FF1976D2" Foreground="White" FontWeight="Bold"
-                                Click="btnViewAllDonations_Click"/>
                         <Button x:Name="btnManageBloodUnits" Content="Manage Blood Units" 
                                 Width="200" Height="40" Margin="5"
                                 Background="#FF7B1FA2" Foreground="White" FontWeight="Bold"

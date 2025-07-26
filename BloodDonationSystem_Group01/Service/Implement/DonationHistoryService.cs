@@ -29,6 +29,11 @@ namespace Service.Implement
             return donationHistoryRepository.GetDonationHistoryByUserId(userId);
         }
 
+        public async Task<List<DonationHistory>> GetUserDonationHistoryAsync(string userId)
+        {
+            return await Task.FromResult(donationHistoryRepository.GetDonationHistoryByUserIdWithIncludes(userId));
+        }
+
         public List<DonationHistory> GetAllDonationHistory()
         {
             return donationHistoryRepository.GetAllDonationHistory();

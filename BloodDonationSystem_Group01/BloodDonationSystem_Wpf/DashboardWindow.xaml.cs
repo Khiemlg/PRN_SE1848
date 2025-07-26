@@ -84,8 +84,15 @@ namespace BloodDonationSystem_Wpf
 
         private void btnViewHistory_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("View Donation History functionality will be implemented soon.", "Coming Soon", MessageBoxButton.OK, MessageBoxImage.Information);
-            // TODO: Open DonationHistoryWindow
+            try
+            {
+                ViewDonationHistoryWindow historyWindow = new ViewDonationHistoryWindow(_currentUser.UserId);
+                historyWindow.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error opening Donation History: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
         #endregion
 
@@ -101,12 +108,6 @@ namespace BloodDonationSystem_Wpf
             {
                 MessageBox.Show($"Error opening Manage Donations: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-        }
-
-        private void btnViewAllDonations_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("View All Donations functionality will be implemented soon.", "Coming Soon", MessageBoxButton.OK, MessageBoxImage.Information);
-            // TODO: Open AllDonationsWindow
         }
 
         private void btnManageBloodUnits_Click(object sender, RoutedEventArgs e)

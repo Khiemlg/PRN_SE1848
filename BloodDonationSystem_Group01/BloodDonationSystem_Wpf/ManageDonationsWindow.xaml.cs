@@ -65,11 +65,6 @@ namespace BloodDonationSystem_Wpf
             }
         }
 
-        private void btnRefresh_Click(object sender, RoutedEventArgs e)
-        {
-            LoadDonationRequests();
-        }
-
         private void btnApprove_Click(object sender, RoutedEventArgs e)
         {
             var selectedRequest = dgDonationRequests.SelectedItem as DonationRequestViewModel;

@@ -17,10 +17,6 @@
         <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,20">
             <Label Content="Manage Donation Requests" 
                    FontFamily="Tahoma" Foreground="#FF2E7D32" FontSize="20" FontWeight="Bold"/>
-            <Button x:Name="btnRefresh" Content="Refresh" 
-                    Width="80" Height="30" Margin="20,0,0,0"
-                    Background="#FF1976D2" Foreground="White" FontWeight="Bold"
-                    Click="btnRefresh_Click"/>
         </StackPanel>
 
         <!-- Data Grid -->
