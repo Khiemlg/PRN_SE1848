@@ -112,6 +112,7 @@ namespace BloodDonationSystem_Wpf
 
         private void btnManageBloodUnits_Click(object sender, RoutedEventArgs e)
         {
+
             try
             {
                 ManageBloodUnitsWindow manageBloodUnitsWindow = new ManageBloodUnitsWindow();
@@ -121,6 +122,10 @@ namespace BloodDonationSystem_Wpf
             {
                 MessageBox.Show($"Error opening Manage Blood Units: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+
+            MessageBox.Show("Manage Blood Units functionality will be implemented soon.", "Coming Soon", MessageBoxButton.OK, MessageBoxImage.Information);
+            // TODO: Open ManageBloodUnitsWindow
+
         }
         #endregion
 
